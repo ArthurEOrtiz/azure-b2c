@@ -1,9 +1,10 @@
-const RestrictedPage = () => {
+import RestrictedClientPage from "@/components/restricted-client-page";
+import TestClientPage from "@/components/test-client-page";
+
+const RestrictedPage: React.FC = () => {
     return (
-        <div>
-            <h1>Restricted Page</h1>
-        </div>
+        <RestrictedClientPage />
     );
-}
+};
 
 export default RestrictedPage;

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/html/header";
 import Footer from "../components/html/footer";
 import Main from "../components/html/main";
+import SessionWrapper from "@/components/session-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
-    <html lang="en">
-      <body className={`min-h-screen flex flex-col ${inter.className}`}>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </body>
-    </html>
+      <html lang="en">
+        <body className={`min-h-screen flex flex-col ${inter.className}`}>
+          <SessionWrapper>
+            <Header />
+            <Main>
+              {children}
+            </Main>
+            <Footer />
+          </SessionWrapper>
+        </body>
+      </html>
   );
 }
