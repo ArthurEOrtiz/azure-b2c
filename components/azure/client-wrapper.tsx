@@ -19,7 +19,8 @@ const ClientWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
     if (status === "loading") {
         return (
-            <div className="flex-grow flex justify-center items-center">    
+            <div className="flex-grow flex flex-col justify-center items-center">  
+                <span className="text-2xl">Loading Session...</span>  
                 <span className="loading loading-spinner loading-lg"></span>
             </div>
         );
