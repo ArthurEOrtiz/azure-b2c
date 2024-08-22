@@ -15,7 +15,7 @@ const RestrictedClientPage: React.FC = () => {
                     </div>
                     <button 
                         className="btn btn-error text-white p-1"
-                        onClick={() => signOut()}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                     >
                         Sign Out
                     </button>
