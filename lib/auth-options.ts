@@ -15,15 +15,16 @@ export const authOptions: NextAuthOptions = {
                 } 
             },
             profile(profile) {
-                console.log("Raw Profile", profile);
+                // PROFILE_DATA.OAuthProfile
                 return {
                     id: profile.sub,
                     email: profile.emails?.[0] ?? null,
                 };
             },
+            
         }),
     ],
-    secret: process.env.NEXTAUTH_SECRET as string,
+    // secret: process.env.NEXTAUTH_SECRET as string,
     logger: {
         error(code, ...message) {
             console.error(code, ...message);
