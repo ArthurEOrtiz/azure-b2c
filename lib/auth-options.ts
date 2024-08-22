@@ -11,7 +11,7 @@ export const authOptions: NextAuthOptions = {
             authorization: { 
                 params: { 
                     scope: 'offline_access openid',
-                    redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
+                    // redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
                 } 
             },
             profile(profile) {
