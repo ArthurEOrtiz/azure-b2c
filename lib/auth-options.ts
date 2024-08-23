@@ -14,13 +14,15 @@ export const authOptions: NextAuthOptions = {
                     // redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
                 } 
             },
-            profile(profile) {
-                // PROFILE_DATA.OAuthProfile
-                return {
-                    id: profile.sub,
-                    email: profile.emails?.[0] ?? null,
-                };
-            },
+            // profile(profile) {
+            //     // PROFILE_DATA.OAuthProfile
+            //     return {
+            //         id: profile.sub,
+            //         firstName: profile.given_name,
+            //         lastName: profile.family_name,
+            //         email: profile.emails?.[0] ?? null,
+            //     };
+            // },
             
         }),
     ],

@@ -3,7 +3,8 @@ import { signOut, useSession } from "next-auth/react";
 
 
 const RestrictedClientPage: React.FC = () => {
-    const { data: session, status } =  useSession();
+    const { data: session } =  useSession();
+    
 
     if (session) {
         return (

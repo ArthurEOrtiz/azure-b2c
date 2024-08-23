@@ -5,11 +5,11 @@ import { useEffect } from "react";
 const ClientWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { data: session, status } = useSession();
    
-    // useEffect(() => {
-    // console.log("ClientWrapper mounted");
-    // console.log("Session: ", session);
-    // console.log("Status: ", status);
-    // }, [session, status]);
+    useEffect(() => {
+    console.log("ClientWrapper mounted");
+    console.log("Session: ", session);
+    console.log("Status: ", status);
+    }, [session, status]);
 
     useEffect(() => {
         if(status === "unauthenticated" && typeof window !== "undefined" && window.location.pathname !== "/") { 
