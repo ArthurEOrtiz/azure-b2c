@@ -4,7 +4,8 @@ import "./globals.css";
 import Header from "../components/html/header";
 import Footer from "../components/html/footer";
 import Main from "../components/html/main";
-import SessionWrapper from "@/components/session-wrapper";
+import SessionWrapper from "@/components/azure/session-wrapper";
+import ClientWrapper from "@/components/azure/client-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +19,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-
   return (
       <html lang="en">
         <body className={`min-h-screen flex flex-col ${inter.className}`}>
           <SessionWrapper>
             <Header />
             <Main>
-              {children}
+              <ClientWrapper>
+                {children}
+              </ClientWrapper>
             </Main>
             <Footer />
           </SessionWrapper>

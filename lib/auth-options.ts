@@ -11,19 +11,22 @@ export const authOptions: NextAuthOptions = {
             authorization: { 
                 params: { 
                     scope: 'offline_access openid',
-                    redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
+                    // redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
                 } 
             },
-            profile(profile) {
-                console.log("Raw Profile", profile);
-                return {
-                    id: profile.sub,
-                    email: profile.emails?.[0] ?? null,
-                };
-            },
+            // profile(profile) {
+            //     // PROFILE_DATA.OAuthProfile
+            //     return {
+            //         id: profile.sub,
+            //         firstName: profile.given_name,
+            //         lastName: profile.family_name,
+            //         email: profile.emails?.[0] ?? null,
+            //     };
+            // },
+            
         }),
     ],
-    secret: process.env.NEXTAUTH_SECRET as string,
+    // secret: process.env.NEXTAUTH_SECRET as string,
     logger: {
         error(code, ...message) {
             console.error(code, ...message);

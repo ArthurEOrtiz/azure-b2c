@@ -7,10 +7,9 @@ interface SessionWrapperProps {
 }
 
 const SessionWrapper: React.FC<SessionWrapperProps> = ({ children }) => {   
-    useEffect(() => {
-        console.log("SessionWrapper mounted");
-    }, []); 
-    
+    // useEffect(() => {
+    //     console.log("SessionWrapper mounted");
+    // }, []); 
     
     return (
         <SessionProvider>{children}</SessionProvider>

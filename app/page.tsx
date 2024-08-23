@@ -1,13 +1,13 @@
-
 const Home: React.FC = () => {
   return (
-    <main className="flex-grow">
-      <h1 className="text-3xl font-bold">Hello World</h1>
-      <p className="text-lg">
-        Welcome to your new app. This is a simple starter template that you can
-        use to build your own app
-      </p>
-    </main>
+    <div className="flex-grow flex flex-col items-center justify-center space-y-2">
+      <h1 className="text-3xl font-bold">Hello World!</h1>
+      <div className="w-2/3 border rounded-xl p-2">
+        <p className="text-lg">
+          This is an application to test authentication with Azure B2C. This is the home page, no authentication is required to view this page.
+        </p>
+      </div>
+    </div>
   );
 }
 
