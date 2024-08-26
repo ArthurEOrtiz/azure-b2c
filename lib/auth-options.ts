@@ -1,5 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import AzureADB2CProvider  from "next-auth/providers/azure-ad-b2c";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -10,21 +11,15 @@ export const authOptions: NextAuthOptions = {
             primaryUserFlow: process.env.AZURE_AD_B2C_PRIMARY_USER_FLOW as string,
             authorization: { 
                 params: { 
-                    scope: 'offline_access openid',
-                    // redirect_uri: 'http://localhost:3000/api/auth/callback/azure-ad-b2c' 
+                    scope:  `https://${process.env.AZURE_AD_B2C_TENANT_ID}.onmicrosoft.com/api/PublicInfo.Read offline_access openid`,
                 } 
             },
-            // profile(profile) {
-            //     // PROFILE_DATA.OAuthProfile
-            //     return {
-            //         id: profile.sub,
-            //         firstName: profile.given_name,
-            //         lastName: profile.family_name,
-            //         email: profile.emails?.[0] ?? null,
-            //     };
-            // },
-            
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        }),
+        
     ],
     // secret: process.env.NEXTAUTH_SECRET as string,
     logger: {
@@ -39,4 +34,9 @@ export const authOptions: NextAuthOptions = {
         }
     },
     debug: true,
+    callbacks: {
+        async session({ session, token, user }) {
+            return session;
+        }
+    },
 };
