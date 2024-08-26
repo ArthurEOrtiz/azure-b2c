@@ -4,7 +4,10 @@ import { useEffect } from "react";
 
 const ClientWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { data: session, status } = useSession();
-   
+    const unauthenticatedPaths = ["/", "/server-side-session"];
+
+
+
     useEffect(() => {
     console.log("ClientWrapper mounted");
     console.log("Session: ", session);
@@ -12,8 +15,8 @@ const ClientWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     }, [session, status]);
 
     useEffect(() => {
-        if(status === "unauthenticated" && typeof window !== "undefined" && window.location.pathname !== "/") { 
-            signIn();
+        if(status === "unauthenticated" && typeof window !== "undefined" && !unauthenticatedPaths.includes(window.location.pathname)) { 
+            signIn("azure-ad-b2c");
         }
     }, [status]);
 
@@ -26,7 +29,7 @@ const ClientWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         );
     }
 
-    if (!session && typeof window !== "undefined" && window.location.pathname !== "/") {    
+    if (!session && typeof window !== "undefined" && !unauthenticatedPaths.includes(window.location.pathname)) {    
         return null;
     }
 
