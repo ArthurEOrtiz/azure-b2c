@@ -8,6 +8,7 @@ const Header: React.FC = () => {
             <nav className="flex space-x-4 justify-center">
                 <a href="/">Home</a>
                 <a href="/restricted-page">Restricted Page</a>
+                <a href="/server-side-session">Server Side Session</a>  
             </nav>
         </header>
     );
